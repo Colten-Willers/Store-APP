@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}Chat{% endblock title %}
+
+{% block main %}
+    <form action="/chat" method="POST">
+    {% if session.user_name != 'Wolf' %}
+    {% for x in message_package %}
+        <p>{{ x['sender'] }}: {{ x['message'] }}</p>
+    {% endfor %}
+    {% else %}
+    {% for x in message_package %}
+        <p>{{ x['sender'] }}->{{ x['receiver'] }}: {{ x['message'] }}</p>
+    {% endfor %}
+    {% endif %}
+    <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="comment" placeholder="Message" type="text">
+            {% if session.user_name == 'Wolf' %}
+                <select name="selected_recipient" class="form-select form-select-sm">
+                    <option selected disabled> Select a receiver</option>
+                    {% for x in recipients %}
+                    <option value="{{x.username}}">{{x.username}}</option>
+                    {% endfor %}
+                </select>
+            {% endif %}
+        </div>
+        <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+{% endblock main %}

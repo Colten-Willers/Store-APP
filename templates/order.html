@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}Order{% endblock title %}
+
+{% block main %}
+    <form action="/order" method="POST" enctype="multipart/form-data">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Bestellung</h2>
+            </div>
+
+            <p>
+                <div class="col-sm-6">
+                    Farbe: 
+                </div>
+
+                <div class="col-sm-6">
+                    <input type="image" src="/static/Blue_color_option_banner.png" style="border: double;" height="80" width="170"/> <!--<img alt="Blue Color Option" src="/static/Blue_color_option_banner.png" class="img-fluid">-->
+                
+                    <input type="image" src="/static/Gray_color_option_banner.png" style="border: double;" height="80" width="170"/> <!--<img alt="Gray Color Option" src="/static/Gray_color_option_banner.png" class="img-fluid">-->
+                </div>
+            </p>
+
+            <p>
+                <div class="col-sm-12">
+                    <input type="file" name='file'/>
+                    <!--<input type="submit"/>-->
+                </div>
+            </p>
+            <p>
+                <div class="col-sm-12">
+                    <input type="text" name='message' placeholder="Optionale Nachricht."/>
+                </div>
+            </p>
+            <p>
+                <div class="col-sm-12">
+                    <input type="submit" class="btn btn-primary"/> <!--Add color in App-->
+                </div>
+            </p>
+            
+
+        </div>
+            <!--Upload files and pick color here and this will be E-Mailed to me. They have to enter an Email address to sign up.-->
+    </div>
+</form>
+{% endblock main %}

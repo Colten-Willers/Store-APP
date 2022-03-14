@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<form action="/" method="POST">
+
+    <!--<div style="background-image: url('https://www.creality3dofficial.com/files/goods/20210917/Ender-3V2.jpg');">
+    -->
+    <!--<style>
+    html {
+
+    background-image: url('https://www.creality3dofficial.com/files/goods/20210917/Ender-3V2.jpg');
+    background-repeat: no-repeat;
+    background-mirror: mirrored;
+
+    }
+    </style>-->
+    
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <h2>Willkommen!</h2>
+            </div>
+
+            <div class="col-md-12">
+                <p>
+                    Zum Reich des 3D-Drucks. 
+                </p>
+                {% if session.user_id %}
+                <p>
+                    Username: {{ session['user_name'] }}
+                </p>
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <!--
+                <p>
+                    Zum Reich des 3D-Drucks. 
+                </p>
+                <p>
+                    Zum Reich des 3D-Drucks. 
+                </p>
+                <p>
+                    Zum Reich des 3D-Drucks. 
+                </p>-->
+                <iframe src="https://www.youtube.com/embed/QB7ACr7pUuE"
+                    width="100%" height="100%" frameborder="0" allowfullscreen autoplay="1">                <!--Do a self made advertising showcase video here.-->
+                </iframe>
+            </div>
+            <div class="col-md-6"><!--
+            <a href="https://www.creality.com/goods-detail/ender-3-v2-3d-printer">
+                <img alt="3D-Printer" src="https://www.creality3dofficial.com/files/goods/20210917/Ender-3V2.jpg" class="img-fluid">
+            </a>-->
+            <a href="https://www.creality.com/goods-detail/ender-3-v2-3d-printer">
+                <img alt="3D-Printer" src="/static/background1.jpg" class="img-fluid">
+            </a>
+        </div>
+
+        </div>
+    </div>
+</form>
+
+{% endblock %}

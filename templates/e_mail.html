@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}E-Mail{% endblock title %}
+
+{% block main %}
+    <form action="/contact" method="POST">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="e_mail" placeholder="E-Mail" type="text">
+            <input autocomplete="off" autofocus class="form-control" name="message" placeholder="Message" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+{% endblock main %}
