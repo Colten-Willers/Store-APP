@@ -1,1 +1,1 @@
-This is my Store biult with Flask Python, HTML and CSS.
+This is my Store built with Flask Python, HTML and CSS.
