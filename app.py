@@ -187,6 +187,13 @@ def order():
 
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
         
+        # Checking for Entered Email
+        Email = request.form.get('Email')
+        
+        if Email == None:
+            return render_template("apology.html", p="No Email Entered.")
+        
+        
         """#Sending a E-Mail.
         entered_message = request.form.get('message')
         e_mail = "willers.colt@gmail.com"
@@ -209,6 +216,8 @@ def order():
             message = request.form.get('message')
         else:
             message = 'No Message Entered.'
+        
+        message = message + "\n" + Email
         file_location = str(latest_file) ########################################### Working here. Find out how to send newest File. 
 
         msg = MIMEMultipart()
@@ -236,4 +245,4 @@ def order():
         server.sendmail(email, send_to_email, text)
         server.quit()
 
-        return render_template("/index.html")
+        return render_template("order_success.html")

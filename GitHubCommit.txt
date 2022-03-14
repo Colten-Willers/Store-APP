@@ -1,0 +1,6 @@
+git init
+git add .
+git branch # All Branches
+git checkout -b Name # Creates a new Branch with the name "Name"
+git checkout Name # Goes to the "Name" Branch
+git merge # Merges the Branches
