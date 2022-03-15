@@ -174,8 +174,10 @@ app.config['UPLOAD_FOLDER'] = "./Uploads"
 
 @app.route("/order", methods=["GET", "POST"])
 def order():
+    data = ["Blue", "Gray"] 
+    
     if request.method == "GET":
-        return render_template("order.html")
+        return render_template("order.html", data=data)
     
     if request.method == "POST":
         # check if the post request has the file part
@@ -193,6 +195,11 @@ def order():
         if Email == None:
             return render_template("apology.html", p="No Email Entered.")
         
+        # Checking color
+        color = request.form.get('color')
+        if color == None:
+            return render_template("apology.html", p="No color chosen.")
+        
         
         """#Sending a E-Mail.
         entered_message = request.form.get('message')
@@ -209,7 +216,7 @@ def order():
         latest_file = max(list_of_files, key=os.path.getctime)
         ###########################################################
         email = 'server.coltex@gmail.com'
-        password = 'Business123!'
+        password = os.environ['G-Mail_password']
         send_to_email = 'willers.colt@gmail.com'
         subject = 'File'
         if request.form.get('message') != None:
@@ -217,7 +224,7 @@ def order():
         else:
             message = 'No Message Entered.'
         
-        message = message + "\n" + Email
+        message = message + "\n" + Email + "\n" + str(color)
         file_location = str(latest_file) ########################################### Working here. Find out how to send newest File. 
 
         msg = MIMEMultipart()

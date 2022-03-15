@@ -16,11 +16,21 @@
                     Farbe: 
                 </div>
 
-                <div class="col-sm-6">
-                    <input type="image" src="/static/Blue_color_option_banner.png" style="border: double;" height="80" width="170"/> <!--<img alt="Blue Color Option" src="/static/Blue_color_option_banner.png" class="img-fluid">-->
+                <!--<div class="col-sm-6">
+                    <input type="image" src="/static/Blue_color_option_banner.png" style="border: double;" height="80" width="170" name='color'/> <img alt="Blue Color Option" src="/static/Blue_color_option_banner.png" class="img-fluid">
                 
-                    <input type="image" src="/static/Gray_color_option_banner.png" style="border: double;" height="80" width="170"/> <!--<img alt="Gray Color Option" src="/static/Gray_color_option_banner.png" class="img-fluid">-->
-                </div>
+                    <input type="image" src="/static/Gray_color_option_banner.png" style="border: double;" height="80" width="170"name='color'/> <img alt="Gray Color Option" src="/static/Gray_color_option_banner.png" class="img-fluid">
+                </div>-->
+
+
+                <select name="color" id="color" onchange="cs50Info(this.value)">
+                    <option value="" disabled selected>Wähle Farbe</option>
+                    {% for col in data %}
+                    <option value={{ col }}>{{ col }}</option>
+                    {% endfor %}
+                </select>
+
+
             </p>
 
             <p>
